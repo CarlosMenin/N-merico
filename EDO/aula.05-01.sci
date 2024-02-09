@@ -19,25 +19,19 @@ function dy=f(x,y)
 endfunction
 
 // Vamos aproximar no intervalo [0,2*%pi] com n aproximações
+n  = 100
 
-n = 100                    // numéro de aproximações no intervalo (0,2%pi]
-xi = linspace(0,2*%pi,n+1) // nós do problema
-h = 2*%pi/n                // espaçamento entre os nós
+// Condição inicial (em x0=0)
+y0 = [1;0]
 
-// Incialização da variável com as aproximações e a condição inicial
-yi = zeros(2,n+1)
-
-// Condição inicial
-yi(:,1) = [1;0] 
+// Cáculo das aproximações 
+xi = linspace(0,2*%pi,n+1)
+yi = ode_int(y0,0,2*%pi,f,n,euler)
 
 
-for i=1:n
-    yi(:,i+1) = euler(yi(:,i),xi(i),xi(i+1),f) 
-end
-
-// Gráfico da aproximação para y1
+// Gráfico da aproximação para y1 (primeira componente de yi)
 plot(xi,yi(1,:),'.k')
 xgrid
 
-// Gráfico da aproximação para y2
+// Gráfico da aproximação para y2 (seguda componente de yi)
 plot(xi,yi(2,:),'.r')
