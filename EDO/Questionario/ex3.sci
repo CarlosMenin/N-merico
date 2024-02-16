@@ -3,7 +3,7 @@ u' = u*t
 
 
 */
-function du=f(u,t)
+function du=f(t,u)
     du(1) = u*t
 endfunction
 

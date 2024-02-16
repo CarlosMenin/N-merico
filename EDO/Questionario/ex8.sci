@@ -1,14 +1,10 @@
-/*
-u' = sin(u)
-
-
-*/
 function du=f(t,u)
-    du = sin(u)
+    du(1) = sin(u)
 endfunction
- 
-n = 100
-h = (2-0)/n                                 
+
+n = 10000
+h = (2-0)/n                   
+              
 
 xi = 0
 yi = 1 

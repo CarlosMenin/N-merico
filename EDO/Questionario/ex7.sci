@@ -1,18 +1,13 @@
-/*
-u' = u*t
-
-
-*/
 function du=f(t,u)
-    du(1) = u*t
+    du(1) = sin(u)
 endfunction
 
-h = 0.1 
-n = (2-1)/h                    
+n = 100
+h = (2-0)/n                   
               
 
-xi = 1
-yi = 0.1 
+xi = 0
+yi = 1 
 
 for i=1:n
     yi = EulerA(yi,xi,xi+h,f)  // ou yi = yi + h*f(xi,yi)
